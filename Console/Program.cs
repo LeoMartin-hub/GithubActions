@@ -1,4 +1,6 @@
 ﻿// See https://aka.ms/new-console-template for more information
+#nullable disable
+
 
 namespace GithubActionsLab;
 
@@ -80,8 +82,12 @@ public class Program
 
 	public static double Divide(string x, string y)
 	{
+		if (y == "0") 
+			throw new DivideByZeroException("Cannot divide by zero.");
+
 		return double.Parse(x) / double.Parse(y);
 	}
+
 
 	// Implement this method following a similar pattern as above
 	public static double Power(string x, string y)
